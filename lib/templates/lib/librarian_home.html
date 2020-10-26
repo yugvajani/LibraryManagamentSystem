@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home-Librarian</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style>
+      html, body {
+        overflow-x: hidden;
+        background-image: url("https://img.freepik.com/free-photo/abstract-techno-background-with-connecting-lines_1048-5570.jpg?size=626&ext=jpg");
+        background-size: cover;
+      }
+      .nav-item a:hover{
+        border-bottom: 3px solid rgb(49, 17, 192);
+      }
+    </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <p class="text-light"><h3 style="color: white;">Sardar Patel Institute of Technology</h3></p>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto"> 
+    <li class="nav-item">
+      <a class="text-ligt nav-link" href="{% url 'home' %}" style="font-size: 20px;padding-right: 20px;">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="text-ligt nav-link" href="{% url 'logout' %}" style="font-size: 20px;padding-right: 20px;">Logout</a>
+    </li>
+    <li class="nav-item">
+      <a class="text-ligt nav-link" href="#" style="color: white;font-size: 20px;padding-right: 5px;">{{user.username}}</a>
+    </li>
+  </ul>
+</nav>
+<br>
+<br>
+<div class="card-deck" style="width:900px; height:500px ;margin-left: 19%">
+   <div class="card shadow-lg">
+    <img class="card-img-top" src="https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip" alt="Card image" style="width:100%; height: 60%;">
+    <div class="card-body">
+      <h4 class="card-title text-center">Books</h4>
+      <p class="card-text">Librarian can add, delete, update and view all the books.</p>
+      <a href="{% url 'manage-books' %}" class="btn btn-primary justify-content-center container-fluid shadow-lg">Manage Books</a>
+    </div>
+  </div>
+   <div class="card shadow-lg">
+    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_IdtkrGC3otMsL_1qoppmCdf2CwklTZ6C0Q&usqp=CAU" alt="Card image" style="width:100%; height: 60%;">
+    <div class="card-body">
+      <h4 class="card-title text-center">Users</h4>
+      <p class="card-text">Librarian can add, delete, update and view all the users.</p>
+      <a href="{% url 'manage-users' %}" class="btn btn-primary justify-content-center container-fluid shadow-lg">Manage Users</a>
+    </div>
+  </div>
+  <div class="card shadow-lg">
+    <img class="card-img-top" src="data:image/jpeg;base64,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" alt="Card image" style="width:100%; height: 60%;">
+    <div class="card-body">
+      <h4 class="card-title text-center">Fines</h4>
+      <p class="card-text">Librarian can add, delete, update and view all the fines</p>
+      <a href="{% url 'view-fines' %}" class="btn btn-primary justify-content-center container-fluid shadow-lg">View Fines</a>
+    </div>
+  </div>
+</div>
+<br>
+</body>
+</html>
